@@ -1,0 +1,11 @@
+body{
+    margin: 0;
+    background-image: url("../img/bg.PNG");
+    background-size: cover;
+    padding: 40px 50px 40px 56px;
+}
+p{margin: 0;}
+a{text-decoration: none;}
+ul{list-style: none; padding: 0;}
+
+.btn:hover{cursor: pointer;}
