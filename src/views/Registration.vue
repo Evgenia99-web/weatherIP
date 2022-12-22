@@ -13,14 +13,16 @@
     </div>
     <div class="regist-block">
       <h2 class="regist-title">Регистрация</h2>
-      <form action="#" method="post" class="regist-form" id="regist-form" autocapitalize="off">
-        <input type="text" name="sername" id="sername" placeholder="Ваша фамилия" class="input-form">
-        <input type="text" name="firstname" id="firstname" placeholder=" Ваше имя" class="input-form">
-        <input type="text" name="country" id="country" placeholder="Ваша страна" class="input-form">
-        <input type="text" name="city" id="city" placeholder="Ваш город" class="input-form">
-        <input type="email" name="email" id="email" placeholder="Ваша электронная почта" class="input-form">
-        <input type="password" name="password" id="password" placeholder="Придумайте ваш пароль" class="input-form">
-        <button type="submit" name="regist" class="btn">Зарегистрироваться</button>
+      <form @submit="register" method="post" class="regist-form" id="regist-form">
+        <input type="text" v-model="surname" id="sername" placeholder="Ваша фамилия" class="input-form">
+        <input type="text" v-model="firstname" id="firstname" placeholder=" Ваше имя" class="input-form">
+        <input type="text" v-model="country" id="country" placeholder="Ваша страна" class="input-form">
+        <input type="text" v-model="city" id="city" placeholder="Ваш город" class="input-form">
+        <input type="email" v-model="email" id="email" placeholder="Ваша электронная почта" class="input-form">
+        <input type="text" v-model="username" id="username" placeholder="Придумайте логин" class="input-form">
+        <input type="password" v-model="password" id="password" placeholder="Придумайте ваш пароль" class="input-form">
+        <input type="text" v-model="photo" id="photo" class="input-form" placeholder="Прикрепите здесь ссылку фото профиля">
+        <button variant="primary" class="btn regist-btn">Зарегистрироваться</button>
       </form>
     </div>
   </div>
@@ -28,8 +30,25 @@
 
 <script>
 export default {
-  name: "Registration"
-}
+  name: "Registration",
+  data(){
+    return{
+      firstname: "",
+      surname: "",
+      username: "",
+      country: "",
+      city: "",
+      email: "",
+      photo: "",
+      password: ""
+    };
+  },
+  methods:{
+    register(event){
+      event.preventDefault();
+    }
+  }
+};
 </script>
 
 <style scoped>
@@ -82,6 +101,7 @@ export default {
   line-height: 24px;
   color: #FFFFFF;
 }
+.regist-btn{margin-top: 10px;}
 .auth-btn{padding: 10px 80px;}
 .regist-block{text-align: center; width: 533px; margin-right: 240px}
 .regist-title{
@@ -90,13 +110,13 @@ export default {
   font-size: 48px;
   line-height: 59px;
   color: #0071BC;
-  margin: 0 0 40px 0;
+  margin: 0 0 10px 0;
 }
 .input-form{
   width: 460px;
   background: #F2F2F2;
   border-radius: 45px;
-  padding: 13px 35px;
+  padding: 10px 35px;
   margin-bottom: 15px;
   border: none;
   box-shadow: inset 0px 0px 9px rgba(0, 0, 0, 0.25);

@@ -13,10 +13,10 @@
     </div>
     <div class="regist-block">
       <h2 class="regist-title">Авторизация</h2>
-      <form action="#" method="post" class="regist-form" id="regist-form" autocapitalize="off">
-        <input type="email" name="email" id="email" placeholder="Ваша электронная почта" class="input-form">
-        <input type="password" name="password" id="password" placeholder="Введите пароль" class="input-form">
-        <button type="submit" name="regist" class="auth-btn btn">Войти</button>
+      <form @submit="login" class="regist-form" id="regist-form">
+        <input type="text" v-model="login" id="email" placeholder="Введите логин" class="input-form">
+        <input type="password" v-model="password" id="password" placeholder="Введите пароль" class="input-form">
+        <button variant="primary" name="regist" class="auth-btn btn">Войти</button>
       </form>
     </div>
   </div>
@@ -24,7 +24,19 @@
 
 <script>
 export default {
-  name: "Authorization"
+  name: "Authorization",
+  data(){
+    return{
+      login: "",
+      password: ""
+    };
+  },
+  methods:{
+    login(event){
+      event.preventDefault();
+    },
+    setLogined(token){}
+  }
 }
 </script>
 
